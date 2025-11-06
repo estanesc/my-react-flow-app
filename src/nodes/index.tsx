@@ -27,7 +27,7 @@ export const initialNodes = [
   { 
     id: 'threatNode-1', 
     type: 'threatNode', 
-    data: { label: 'Threat: Corrosion' }, 
+    data: { label: 'Threat: Corrosion (by Emanuel :))' }, 
     position: { x: 250, y: 0 } 
   },
   { 
