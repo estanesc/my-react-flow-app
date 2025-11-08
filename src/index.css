@@ -1,7 +1,30 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --font-stack: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --line-height: 1.5;
+  --font-weight-base: 400;
+
+  /* element color tokens */
+  --hazard: #B22222;
+  --hazard-hover: #8B0000;
+  --top-event: #FF4500;
+  --top-event-hover: #CC3700;
+  --threat: #FFA500;
+  --threat-hover: #FF8C00;
+  --consequence: #9932CC;
+  --consequence-hover: #800080;
+  --preventive: #32CD32;
+  --preventive-hover: #228B22;
+  --mitigative: #00BFFF;
+  --mitigative-hover: #1E90FF;
+  --degradation-factor: #FFD700;
+  --degradation-factor-hover: #FFA500;
+  --degradation-control: #66CDAA;
+  --degradation-control-hover: #20B2AA;
+
+  --element-color-on: #fff;
+  --element-radius: 12px;
+  --element-padding: 1rem;
+  --element-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
 html,
@@ -9,4 +32,40 @@ body,
 #root {
   height: 100%;
   margin: 0;
+  font-family: var(--font-stack);
+  line-height: var(--line-height);
+  font-weight: var(--font-weight-base);
+}
+
+.element {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  max-width: 90vw;
+  padding: var(--element-padding);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: var(--element-radius);
+  color: var(--element-color-on);
+  text-transform: none; /* keep content readable inside shaped elements */
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+  box-shadow: var(--element-shadow);
+  border: 2px solid rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+.element:focus-visible {
+  outline: 3px solid rgba(0,0,0,0.12);
+  outline-offset: 4px;
+}
+
+.node-label {
+  font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }

@@ -1,0 +1,7 @@
+.consequence {
+  background-color: var(--consequence);
+}
+.consequence:hover {
+  background-color: var(--consequence-hover);
+  transform: translateY(-3px);
+}
