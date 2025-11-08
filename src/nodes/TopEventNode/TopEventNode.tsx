@@ -15,6 +15,7 @@ const TopEventNode: React.FC<TopEventNodeProps> = ({ data }) => {
         <strong>{data.label}</strong>
       </div>
       <Handle type="source" position={Position.Right} />
+      <Handle type="source" position={Position.Top} />
     </div>
   );
 };

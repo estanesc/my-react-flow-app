@@ -10,6 +10,7 @@ import ThreatNode from './ThreatNode/ThreatNode.tsx';
 import TopEventNode from './TopEventNode/TopEventNode.tsx';
 
 import { AppNode } from './types';
+import { PositionLoggerNode } from './PositionLoggerNode.tsx';
 
 export const nodeTypes = {
   consequenceNode: ConsequenceNode,
@@ -20,55 +21,62 @@ export const nodeTypes = {
   preventionBarrierNode: PreventionBarrierNode,
   threatNode: ThreatNode,
   topEventNode: TopEventNode,
+  positionLoggerNode: PositionLoggerNode,
 } satisfies NodeTypes;
 
 export const initialNodes = [
+    {
+    id: 'positionLogger-1',
+    type: 'positionLoggerNode',
+    position: { x: 335, y: -191 },
+    data: { label: 'Position Logger' },
+  },
   {
     id: 'consequenceNode-1',
     type: 'consequenceNode',
-    position: { x: 0, y: 0 },
-    data: { label: 'Consequence Node' },
+    position: { x: 459, y: 18 },
+    data: { label: 'Consequence' },
   },
   {
     id: 'degradationControlNode-1',
     type: 'degradationControlNode',
-    position: { x: -400, y: 200 },
-    data: { label: 'Degradation Control Node' },
+    position: { x: -368, y: 95 },
+    data: { label: 'Degradation Control' },
   },
   {
     id: 'degradationFactorNode-1',
     type: 'degradationFactorNode',
-    position: { x: 0, y: 200 },
-    data: { label: 'Degradation Factor Node' },
+    position: { x: -652, y: 106 },
+    data: { label: 'Degradation Factor' },
   },
   {
     id: 'hazardNode-1',
     type: 'hazardNode',
-    position: { x: -200, y: -200 },
-    data: { label: 'Hazard Node' },
+    position: { x: -76, y: -237 },
+    data: { label: 'Hazard' },
   },
   {
     id: 'mitigationBarrierNode-1',
     type: 'mitigationBarrierNode',
-    position: { x: 400, y: 200 },
-    data: { label: 'Mitigation Barrier Node' },
+    position: { x: 211, y: 12 },
+    data: { label: 'Mitigation Barrier' },
   },
   {
     id: 'preventionBarrierNode-1',
     type: 'preventionBarrierNode',
-    position: { x: -400, y: -200 },
-    data: { label: 'Prevention Barrier Node' },
+    position: { x: -379, y: -60 },
+    data: { label: 'Prevention Barrier' },
   },
   {
     id: 'threatNode-1',
     type: 'threatNode',
-    position: { x: 200, y: -200 },
-    data: { label: 'Threat Node' },
+    position: { x: -670, y: -85 },
+    data: { label: 'Threat' },
   },
     {
     id: 'topEvent-1',
     type: 'topEventNode',
-    position: { x: 200, y: -200 },
-    data: { label: 'Top Event Node' },
+    position: { x: -72, y: 13 },
+    data: { label: 'Top Event' },
   },
 ] as unknown as AppNode[];
