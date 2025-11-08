@@ -62,7 +62,7 @@ body,
 
 .node-label {
   font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
   letter-spacing: 0.3px;

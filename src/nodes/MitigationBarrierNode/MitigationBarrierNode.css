@@ -1,0 +1,7 @@
+.mitigative-barrier {
+  background-color: var(--mitigative);
+}
+.mitigative-barrier:hover {
+  background-color: var(--mitigative-hover);
+  transform: translateY(-3px);
+}

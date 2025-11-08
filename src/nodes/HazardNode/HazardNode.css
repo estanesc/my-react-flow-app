@@ -1,0 +1,9 @@
+.hazard {
+  background-color: var(--hazard);
+  border-color: rgba(0,0,0,0.08);
+}
+.hazard:hover {
+  background-color: var(--hazard-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.14);
+}

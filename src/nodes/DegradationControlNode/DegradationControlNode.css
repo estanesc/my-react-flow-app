@@ -1,0 +1,8 @@
+.degradation-control {
+  background-color: var(--degradation-control);
+  color: #333;
+  border: 2px solid rgba(0,0,0,0.06);
+}
+.degradation-control:hover {
+  background-color: var(--degradation-control-hover);
+}
