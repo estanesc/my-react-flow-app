@@ -10,12 +10,12 @@ interface TopEventNodeProps {
 const TopEventNode: React.FC<TopEventNodeProps> = ({ data }) => {
   return (
     <div className="element top-event">
-      <Handle type="target" position={Position.Left} />
+      <Handle id="topevent-left" type="target" position={Position.Left} />
       <div className="node-label">
         <strong>{data.label}</strong>
       </div>
-      <Handle type="source" position={Position.Right} />
-      <Handle type="source" position={Position.Top} />
+      <Handle id="topevent-right" type="source" position={Position.Right} />
+      <Handle id="topevent-top" type="target" position={Position.Top} />
     </div>
   );
 };

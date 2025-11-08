@@ -14,7 +14,7 @@ const DegradationFactorNode: React.FC<DegradationFactorNodeProps> = ({ data }) =
       <div className="node-label">
         <strong>{data.label}</strong>
       </div>
-      <Handle type="target" position={Position.Right} />
+      <Handle type="source" position={Position.Right} />
     </div>
   );
 };

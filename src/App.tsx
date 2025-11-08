@@ -28,7 +28,10 @@ function FlowComponent() {
   const { fitView } = useReactFlow(); 
 
   const onConnect: OnConnect = useCallback(
-    (connection) => setEdges((edges) => addEdge(connection, edges)),
+    (connection) => {
+      console.log('New connection established:', connection);
+      return setEdges((edges) => addEdge(connection, edges));
+    },
     [setEdges]
   );
 
@@ -82,7 +85,7 @@ function FlowComponent() {
       fitView
       // Ensure nodes can be dragged and canvas can be zoomed/panned
       // (These are default, but crucial for interaction)
-      proOptions={{ hideAttribution: false }} 
+      proOptions={{ hideAttribution: false, }} 
     >
       <Background />
       <MiniMap />

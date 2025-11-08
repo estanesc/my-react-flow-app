@@ -3,5 +3,4 @@ background-color: var(--degradation-factor);
 }
 .degradation-factor:hover {
   background-color: var(--degradation-factor-hover);
-  transform: translateY(-3px);
 }

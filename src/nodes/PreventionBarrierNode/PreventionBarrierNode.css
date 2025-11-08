@@ -3,5 +3,4 @@
 }
 .preventive-barrier:hover {
   background-color: var(--preventive-hover);
-  transform: translateY(-3px);
 }

@@ -3,5 +3,4 @@
 }
 .threat:hover {
   background-color: var(--threat-hover);
-  transform: translateY(-3px);
 }

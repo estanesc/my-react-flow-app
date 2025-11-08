@@ -13,7 +13,7 @@ const HazardNode: React.FC<HazardNodeProps> = ({ data }) => {
       <div className="node-label">
         <strong>{data.label}</strong>
       </div>
-      <Handle type="target" position={Position.Bottom} />
+      <Handle id="hazard-bottom" type="source" position={Position.Bottom} />
     </div>
   );
 };
