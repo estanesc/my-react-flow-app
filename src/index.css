@@ -113,3 +113,44 @@ body,
   text-align: center;
   width: 100%;
 }
+
+/* Map node classes to their SVG colors and hover variants */
+.hazard .svg-node__graphic .svg-bg,
+.hazard .svg-node__graphic.svg-bg { fill: var(--hazard); }
+.hazard:hover .svg-node__graphic .svg-bg,
+.hazard:hover .svg-node__graphic.svg-bg { fill: var(--hazard-hover); }
+
+.threat .svg-node__graphic .svg-bg,
+.threat .svg-node__graphic.svg-bg { fill: var(--threat); }
+.threat:hover .svg-node__graphic .svg-bg,
+.threat:hover .svg-node__graphic.svg-bg { fill: var(--threat-hover); }
+
+.top-event .svg-node__graphic .svg-bg,
+.top-event .svg-node__graphic.svg-bg { fill: var(--top-event); }
+.top-event:hover .svg-node__graphic .svg-bg,
+.top-event:hover .svg-node__graphic.svg-bg { fill: var(--top-event-hover); }
+
+.consequence .svg-node__graphic .svg-bg,
+.consequence .svg-node__graphic.svg-bg { fill: var(--consequence); }
+.consequence:hover .svg-node__graphic .svg-bg,
+.consequence:hover .svg-node__graphic.svg-bg { fill: var(--consequence-hover); }
+
+.preventive-barrier .svg-node__graphic .svg-bg,
+.preventive-barrier .svg-node__graphic.svg-bg { fill: var(--preventive); }
+.preventive-barrier:hover .svg-node__graphic .svg-bg,
+.preventive-barrier:hover .svg-node__graphic.svg-bg { fill: var(--preventive-hover); }
+
+.mitigative-barrier .svg-node__graphic .svg-bg,
+.mitigative-barrier .svg-node__graphic.svg-bg { fill: var(--mitigative); }
+.mitigative-barrier:hover .svg-node__graphic .svg-bg,
+.mitigative-barrier:hover .svg-node__graphic.svg-bg { fill: var(--mitigative-hover); }
+
+.degradation-factor .svg-node__graphic .svg-bg,
+.degradation-factor .svg-node__graphic.svg-bg { fill: var(--degradation-factor); }
+.degradation-factor:hover .svg-node__graphic .svg-bg,
+.degradation-factor:hover .svg-node__graphic.svg-bg { fill: var(--degradation-factor-hover); }
+
+.degradation-control .svg-node__graphic .svg-bg,
+.degradation-control .svg-node__graphic.svg-bg { fill: var(--degradation-control); }
+.degradation-control:hover .svg-node__graphic .svg-bg,
+.degradation-control:hover .svg-node__graphic.svg-bg { fill: var(--degradation-control-hover); }

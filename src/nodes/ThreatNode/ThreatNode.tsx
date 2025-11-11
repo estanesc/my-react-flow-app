@@ -21,7 +21,7 @@ const ThreatNode: React.FC<ThreatNodeProps> = ({ data }) => {
         xmlns="http://www.w3.org/2000/svg"
         pointerEvents="none"
       >
-        <rect x="0" y="0" width="100" height="60" rx="8" fill="none" />
+        <rect className="svg-bg" x="0" y="0" width="100" height="60" rx="8" />
         <circle cx="50" cy="30" r="12" fill="var(--element-color-on)" opacity="0.95" />
       </svg>
 
