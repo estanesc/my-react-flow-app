@@ -6,12 +6,13 @@ import './DegradationFactorNode.css';
 interface DegradationFactorNodeProps {
   data: {
     label: string;
+    description: string;
   };
 }
 
 const DegradationFactorNode: React.FC<DegradationFactorNodeProps> = ({ data }) => {
   return (
-    <Tippy content={data.label} placement="top" arrow={true}>
+    <Tippy content={data.description} placement="top" arrow={true}>
       <div className="element degradation-factor svg-node">
       <Handle type="target" position={Position.Left} style={{ top: '50%', transform: 'translateY(-50%)' }} />
 

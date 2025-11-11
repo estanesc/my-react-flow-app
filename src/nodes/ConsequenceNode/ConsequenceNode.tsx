@@ -6,12 +6,13 @@ import './ConsequenceNode.css';
 interface ConsequenceNodeProps {
   data: {
     label: string;
+    description: string;
   };
 }
 
 const ConsequenceNode: React.FC<ConsequenceNodeProps> = ({ data }) => {
   return (
-    <Tippy content={data.label} placement="top" arrow={true}>
+    <Tippy content={data.description} placement="top" arrow={true}>
       <div className="element consequence svg-node">
       <Handle type="target" position={Position.Left} style={{ top: '50%', transform: 'translateY(-50%)' }} />
 

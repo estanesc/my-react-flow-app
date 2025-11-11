@@ -6,12 +6,13 @@ import './TopEventNode.css';
 interface TopEventNodeProps {
   data: {
     label: string;
+    description: string;
   };
 }
 
 const TopEventNode: React.FC<TopEventNodeProps> = ({ data }) => {
   return (
-    <Tippy content={data.label} placement="top" arrow={true}>
+    <Tippy content={data.description} placement="top" arrow={true}>
       <div className="element top-event svg-node">
       <Handle id="topevent-left" type="target" position={Position.Left} style={{ top: '50%', transform: 'translateY(-50%)' }} />
 

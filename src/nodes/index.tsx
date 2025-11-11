@@ -31,7 +31,6 @@ export const initialNodes = [
       position: { x: 0, y: 0 },
     data: {
       label: 'Position Logger',
-      description: 'Logs the position of nodes for debugging or layout purposes; not a Bowtie diagram element.'
     },
   },
   {

@@ -6,12 +6,13 @@ import './HazardNode.css';
 interface HazardNodeProps {
   data: {
     label: string;
+    description: string;
   };
 }
 
 const HazardNode: React.FC<HazardNodeProps> = ({ data }) => {
   return (
-    <Tippy content={data.label} placement="top" arrow={true}>
+    <Tippy content={data.description} placement="top" arrow={true}>
       <div className="element hazard svg-node" role="group" aria-label={data.label}>
       {/* Left target handle (centered vertically) */}
       <Handle

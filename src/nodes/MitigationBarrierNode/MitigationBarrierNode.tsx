@@ -6,12 +6,13 @@ import './MitigationBarrierNode.css';
 interface MitigationBarrierNodeProps {
   data: {
     label: string;
+    description: string;
   };
 }
 
 const MitigationBarrierNode: React.FC<MitigationBarrierNodeProps> = ({ data }) => {
   return (
-    <Tippy content={data.label} placement="top" arrow={true}>
+    <Tippy content={data.description} placement="top" arrow={true}>
       <div className="element mitigative-barrier svg-node">
       <Handle type="target" position={Position.Left} style={{ top: '50%', transform: 'translateY(-50%)' }} />
 

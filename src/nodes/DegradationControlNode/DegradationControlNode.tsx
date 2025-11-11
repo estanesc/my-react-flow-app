@@ -6,12 +6,13 @@ import './DegradationControlNode.css';
 interface DegradationControlNodeProps {
   data: {
     label: string;
+    description: string;
   };
 }
 
 const DegradationControlNode: React.FC<DegradationControlNodeProps> = ({ data }) => {
   return (
-    <Tippy content={data.label} placement="top" arrow={true}>
+    <Tippy content={data.description} placement="top" arrow={true}>
       <div className="element degradation-control svg-node">
       <Handle type="target" position={Position.Left} style={{ top: '50%', transform: 'translateY(-50%)' }} />
 

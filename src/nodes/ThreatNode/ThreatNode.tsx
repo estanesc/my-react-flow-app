@@ -6,12 +6,13 @@ import './ThreatNode.css';
 interface ThreatNodeProps {
   data: {
     label: string;
+    description: string;
   };
 }
 
 const ThreatNode: React.FC<ThreatNodeProps> = ({ data }) => {
   return (
-    <Tippy content={data.label} placement="top" arrow={true}>
+    <Tippy content={data.description} placement="top" arrow={true}>
       <div className="element threat svg-node">
       <svg
         className="svg-node__graphic"
