@@ -47,7 +47,7 @@ body,
   font-weight: 600;
   font-size: 1rem;
   border-radius: var(--element-radius);
-  color: var(--element-color-on);
+  color: #000; /* node text color (was white) */
   text-transform: none;
   transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
   box-shadow: var(--element-shadow);
@@ -69,7 +69,7 @@ body,
   font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #000;
   letter-spacing: 0.3px;
   line-height: 1.4;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -78,6 +78,11 @@ body,
   padding: 0 4px;
   max-width: 90%;
   box-sizing: border-box;
+}
+
+/* Ensure React Flow's default node text is also black */
+.react-flow__node-default {
+  color: #000;
 }
 
 /* Shared SVG-node layout used by custom nodes */
