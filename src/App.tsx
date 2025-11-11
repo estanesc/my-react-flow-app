@@ -11,6 +11,8 @@ import {
   useEdgesState,
   type OnConnect,
 } from '@xyflow/react';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 import '@xyflow/react/dist/style.css';
 
@@ -104,6 +106,73 @@ function FlowComponent() {
     input.click();
   }, [setNodes, setEdges, setViewport]);
 
+  // Export diagram to PDF
+  const onExportPDF = useCallback(() => {
+    const flowElement = document.querySelector('.react-flow') as HTMLElement;
+    
+    if (!flowElement) {
+      alert('Unable to find diagram element');
+      return;
+    }
+
+    // Show loading message
+    const originalCursor = document.body.style.cursor;
+    document.body.style.cursor = 'wait';
+
+    html2canvas(flowElement, {
+      backgroundColor: '#ffffff',
+      scale: 2, // Higher quality
+      logging: false,
+      useCORS: true,
+    }).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      
+      // Calculate PDF dimensions
+      const imgWidth = canvas.width;
+      const imgHeight = canvas.height;
+      const ratio = imgWidth / imgHeight;
+      
+      // Use landscape orientation for wider diagrams
+      const pdfWidth = ratio > 1.4 ? 297 : 210; // A4 dimensions in mm
+      const pdfHeight = ratio > 1.4 ? 210 : 297;
+      
+      const pdf = new jsPDF({
+        orientation: ratio > 1.4 ? 'landscape' : 'portrait',
+        unit: 'mm',
+        format: 'a4',
+      });
+      
+      // Calculate image dimensions to fit PDF page with margins
+      const margin = 10;
+      const maxWidth = pdfWidth - (margin * 2);
+      const maxHeight = pdfHeight - (margin * 2);
+      
+      let finalWidth = maxWidth;
+      let finalHeight = finalWidth / ratio;
+      
+      if (finalHeight > maxHeight) {
+        finalHeight = maxHeight;
+        finalWidth = finalHeight * ratio;
+      }
+      
+      // Center the image
+      const x = (pdfWidth - finalWidth) / 2;
+      const y = (pdfHeight - finalHeight) / 2;
+      
+      pdf.addImage(imgData, 'PNG', x, y, finalWidth, finalHeight);
+      
+      const fileName = `bowtie-diagram-${new Date().toISOString().slice(0, 10)}.pdf`;
+      pdf.save(fileName);
+      
+      document.body.style.cursor = originalCursor;
+      console.log('Diagram exported to PDF!');
+    }).catch((error) => {
+      console.error('Error exporting to PDF:', error);
+      document.body.style.cursor = originalCursor;
+      alert('Error exporting diagram to PDF');
+    });
+  }, []);
+
   const applyLayoutAndFit = useCallback(
     (sourceNodes: typeof initialNodes, sourceEdges: typeof initialEdges) => {
       getLayoutedElements(sourceNodes, sourceEdges).then(({ nodes: layoutedNodes, edges: layoutedEdges }) => {
@@ -166,6 +235,9 @@ function FlowComponent() {
         </button>
         <button onClick={onLoad} style={{ userSelect: 'none', padding: '8px 12px', cursor: 'pointer', backgroundColor: '#2196F3', color: 'white', border: 'none', borderRadius: '4px' }}>
           Load Diagram
+        </button>
+        <button onClick={onExportPDF} style={{ userSelect: 'none', padding: '8px 12px', cursor: 'pointer', backgroundColor: '#E91E63', color: 'white', border: 'none', borderRadius: '4px' }}>
+          Export to PDF
         </button>
       </div>
     </ReactFlow>
