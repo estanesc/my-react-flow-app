@@ -1,4 +1,4 @@
-import { useLayoutEffect, useCallback } from 'react';
+import { useLayoutEffect, useCallback, useState } from 'react';
 import {
   ReactFlow,
   Background,
@@ -14,65 +14,87 @@ import {
 
 import '@xyflow/react/dist/style.css';
 
-// Assuming these files exist and provide the necessary data/functions
 import { initialNodes, nodeTypes } from './nodes';
 import { initialEdges, edgeTypes } from './edges';
 import { getLayoutedElements } from './utils/elkLayout';
 
-// --- 1. Component that uses the React Flow context and handles all logic ---
+function FlowInner({ nodesReadyFlag }: { nodesReadyFlag: boolean }) {
+  const { fitView } = useReactFlow();
+
+  useLayoutEffect(() => {
+    if (nodesReadyFlag) {
+      // ensure DOM has updated, then fit
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          fitView({ padding: 0.1 });
+        });
+      });
+    }
+  }, [nodesReadyFlag, fitView]);
+
+  return (
+    <>
+      <Background />
+      <MiniMap />
+      <Controls />
+    </>
+  );
+}
+
 function FlowComponent() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  
-  // ✅ useReactFlow is now inside a component wrapped by ReactFlowProvider
-  const { fitView } = useReactFlow(); 
+
+  const [nodesReadyFlag, setNodesReadyFlag] = useState(false);
 
   const onConnect: OnConnect = useCallback(
     (connection) => {
       console.log('New connection established:', connection);
-      return setEdges((edges) => addEdge(connection, edges));
+      return setEdges((es) => addEdge(connection, es));
     },
     [setEdges]
   );
 
-  /**
-   * Function to calculate and apply the ELK layout.
-   * This is used for the manual "Run Auto-Layout" button.
-   */
-  const onLayout = useCallback(
-    () => {
-      // Pass current nodes/edges (from state) to the layout utility
-      getLayoutedElements(nodes, edges).then(({ nodes: layoutedNodes, edges: layoutedEdges }) => {
-        setNodes(layoutedNodes);
+  const applyLayoutAndFit = useCallback(
+    (sourceNodes: typeof initialNodes, sourceEdges: typeof initialEdges) => {
+      getLayoutedElements(sourceNodes, sourceEdges).then(({ nodes: layoutedNodes, edges: layoutedEdges }) => {
+        // Compute minimum Y and shift nodes down by a margin so the graph isn't flush to the top
+        const margin = 40; // px, adjust as needed
+        const ys = layoutedNodes.map((n) => (n.position?.y ?? 0));
+        const minY = ys.length ? Math.min(...ys) : 0;
+        const shiftedNodes = layoutedNodes.map((n) => ({
+          ...n,
+          position: {
+            x: n.position?.x ?? 0,
+            y: (n.position?.y ?? 0) - minY + margin,
+          },
+        }));
+
+        // Apply layouted nodes/edges
+        setNodes(shiftedNodes);
         setEdges(layoutedEdges);
-        // Zoom/pan the view to fit the new layout
+
+        // Delay the flag flip until after React re-render / DOM update
         window.requestAnimationFrame(() => {
-          fitView();
+          // Extra RAF to match manual button timing and ensure children mounted
+          window.requestAnimationFrame(() => {
+            setNodesReadyFlag((v) => !v);
+          });
         });
       });
     },
-    // IMPORTANT: Dependencies must be included here for the manual button to work with current data
-    [nodes, edges, setNodes, setEdges, fitView],
+    [setNodes, setEdges]
   );
 
-  /**
-   * Trigger initial layout ONCE on mount.
-   * This fixes the flickering and allows user interaction.
-   */
-  useLayoutEffect(() => {
-    // We use the initial data directly here, so the effect only runs once on mount.
-    getLayoutedElements(initialNodes, initialEdges).then(({ nodes: layoutedNodes, edges: layoutedEdges }) => {
-      setNodes(layoutedNodes);
-      setEdges(layoutedEdges);
-      window.requestAnimationFrame(() => {
-        fitView();
-      });
-    });
-  // ✅ Empty dependency array: runs once on mount only.
-  // This prevents infinite re-layouts that caused flickering and blocked movement.
-  }, []); 
+  const onLayout = useCallback(() => {
+    applyLayoutAndFit(nodes, edges);
+  }, [nodes, edges, applyLayoutAndFit]);
 
-  // The main ReactFlow canvas
+  useLayoutEffect(() => {
+    // run initial layout once on mount using the initial data
+    applyLayoutAndFit(initialNodes, initialEdges);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <ReactFlow
       nodes={nodes}
@@ -82,28 +104,20 @@ function FlowComponent() {
       edgeTypes={edgeTypes}
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
-      fitView
-      // Ensure nodes can be dragged and canvas can be zoomed/panned
-      // (These are default, but crucial for interaction)
-      proOptions={{ hideAttribution: false, }} 
+      proOptions={{ hideAttribution: false }}
     >
-      <Background />
-      <MiniMap />
-      <Controls />
-      {/* Button for manual re-layout */}
+      <FlowInner nodesReadyFlag={nodesReadyFlag} />
+
       <div style={{ position: 'absolute', top: 10, right: 10, zIndex: 10 }}>
-        <button onClick={onLayout} style={{ userSelect: "none" }}>Run Auto-Layout</button>
+        <button onClick={onLayout} style={{ userSelect: 'none' }}>Run Auto-Layout</button>
       </div>
     </ReactFlow>
   );
 }
 
-// --- 2. Main App Component (The wrapper) ---
 export default function App() {
   return (
-    // Set a defined size for the container
     <div style={{ width: '100vw', height: '100vh' }}>
-      {/* ✅ ReactFlowProvider wraps the component that uses useReactFlow */}
       <ReactFlowProvider>
         <FlowComponent />
       </ReactFlowProvider>
