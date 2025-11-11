@@ -55,6 +55,7 @@ body,
   text-align: center;
   /* allow handles to render outside the node border */
   overflow: visible;
+  position: relative; /* ensures handles are positioned relative to the node root */
   word-break: break-word;
   white-space: pre-line;
 }
@@ -113,8 +114,6 @@ body,
 }
 
 .svg-node .react-flow__handle {
-  top: 50% !important;
-  transform: translateY(-50%) !important;
   pointer-events: auto;
   z-index: 4;
 }

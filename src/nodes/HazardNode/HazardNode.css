@@ -8,7 +8,6 @@
   padding: 0.5rem;
   box-sizing: border-box;
   overflow: visible; /* allow handles to render at the border */
-  position: relative; /* handles are positioned relative to this container */
   min-width: 120px;
 }
 
@@ -22,8 +21,6 @@
 
 /* force handle centering for nodes of this class */
 .svg-node .react-flow__handle {
-  top: 50% !important;
-  transform: translateY(-50%) !important;
   pointer-events: auto;
   z-index: 4;
 }
