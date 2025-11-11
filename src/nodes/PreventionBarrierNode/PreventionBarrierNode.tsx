@@ -14,8 +14,10 @@ const PreventionBarrierNode: React.FC<PreventionBarrierNodeProps> = ({ data }) =
 
       <svg className="svg-node__graphic" viewBox="0 0 100 60" width="120" height="60" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" pointerEvents="none">
         <rect className="svg-bg" x="0" y="0" width="100" height="60" rx="6" />
-        <rect x="12" y="12" width="76" height="36" rx="6" fill="var(--element-color-on)" opacity="0.06" />
-        <path d="M30 35 L45 25 L70 40" stroke="var(--element-color-on)" strokeWidth="2" fill="none" strokeLinecap="round" />
+        <g transform="translate(50,32)" fill="currentColor">
+          <path d="M-8 -10 a8 8 0 0 1 16 0 v6 a8 8 0 0 1 -16 0 z" />
+          <rect x="-4" y="-2" width="8" height="6" rx="1" />
+        </g>
       </svg>
 
       <div className="node-label">

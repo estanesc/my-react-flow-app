@@ -14,8 +14,10 @@ const MitigationBarrierNode: React.FC<MitigationBarrierNodeProps> = ({ data }) =
 
       <svg className="svg-node__graphic" viewBox="0 0 100 60" width="120" height="60" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" pointerEvents="none">
         <rect className="svg-bg" x="0" y="0" width="100" height="60" rx="6" />
-        <rect x="10" y="10" width="80" height="40" rx="6" fill="var(--element-color-on)" opacity="0.06" />
-        <path d="M30 35 L45 25 L70 40" stroke="var(--element-color-on)" strokeWidth="2" fill="none" strokeLinecap="round" />
+        <g transform="translate(50,30)" fill="currentColor">
+          <rect x="-18" y="-6" width="36" height="12" rx="3" />
+          <path d="M-8 -2 L0 6 L12 -6" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        </g>
       </svg>
 
       <div className="node-label">

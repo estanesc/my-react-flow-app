@@ -14,8 +14,9 @@ const ConsequenceNode: React.FC<ConsequenceNodeProps> = ({ data }) => {
 
       <svg className="svg-node__graphic" viewBox="0 0 100 60" width="120" height="60" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" pointerEvents="none">
         <rect className="svg-bg" x="0" y="0" width="100" height="60" rx="8" />
-        <rect x="10" y="10" width="80" height="40" rx="8" fill="var(--element-color-on)" opacity="0.12" />
-        <circle cx="50" cy="30" r="8" fill="var(--element-color-on)" />
+        <g fill="currentColor">
+          <path d="M30 25 L40 20 L50 30 L60 22 L70 30 L60 38 L50 32 L40 40 Z" />
+        </g>
       </svg>
 
       <div className="node-label">

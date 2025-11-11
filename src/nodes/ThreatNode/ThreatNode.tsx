@@ -22,7 +22,7 @@ const ThreatNode: React.FC<ThreatNodeProps> = ({ data }) => {
         pointerEvents="none"
       >
         <rect className="svg-bg" x="0" y="0" width="100" height="60" rx="8" />
-        <circle cx="50" cy="30" r="12" fill="var(--element-color-on)" opacity="0.95" />
+  <path d="M55 14 L38 34 L52 34 L40 46 L66 22 L54 22 Z" fill="currentColor" />
       </svg>
 
       <div className="node-label">

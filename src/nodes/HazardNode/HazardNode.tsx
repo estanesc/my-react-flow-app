@@ -32,7 +32,7 @@ const HazardNode: React.FC<HazardNodeProps> = ({ data }) => {
       >
         <path className="svg-bg" d="M50 4 L84 20 L84 48 C84 64 68 76 50 80 C32 76 16 64 16 48 L16 20 Z" stroke="rgba(0,0,0,0.06)" strokeWidth="2" />
 
-        <g transform="translate(50,40)" fill="#fff" stroke="none">
+        <g transform="translate(50,40)" fill="currentColor" stroke="none">
           <rect x="-4" y="-16" width="8" height="14" rx="2" />
           <circle cx="0" cy="18" r="4" />
         </g>

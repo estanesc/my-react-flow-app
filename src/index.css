@@ -107,6 +107,11 @@ body,
   pointer-events: none; /* ensure svg doesn't block handle interactions */
 }
 
+/* Smooth transition when node hover changes the svg background color */
+.svg-node__graphic .svg-bg {
+  transition: fill 160ms ease;
+}
+
 .svg-node .react-flow__handle {
   top: 50% !important;
   transform: translateY(-50%) !important;

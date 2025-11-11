@@ -1,14 +1,4 @@
-.hazard {
-  background-color: var(--hazard);
-  border-color: rgba(0,0,0,0.08);
-}
-.hazard:hover {
-  background-color: var(--hazard-hover);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.14);
-}
-
 /* SVG node helpers */
-
 .svg-node {
   display: flex;
   flex-direction: column;

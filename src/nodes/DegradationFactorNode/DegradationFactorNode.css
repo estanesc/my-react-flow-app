@@ -1,6 +1,0 @@
-.degradation-factor {
-background-color: var(--degradation-factor);
-}
-.degradation-factor:hover {
-  background-color: var(--degradation-factor-hover);
-}
