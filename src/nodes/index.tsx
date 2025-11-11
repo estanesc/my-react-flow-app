@@ -53,7 +53,7 @@ export const initialNodes = [
     id: 'hazardNode-1',
     type: 'hazardNode',
       position: { x: 0, y: 0 },
-    data: { label: 'Hazard' },
+    data: { label: 'Hazard2' },
   },
   {
     id: 'mitigationBarrierNode-1',
