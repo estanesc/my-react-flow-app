@@ -38,26 +38,31 @@ body,
 }
 
 .element {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   min-width: 140px;
-  max-width: 90vw;
+  max-width: 320px;
   padding: var(--element-padding);
   font-weight: 600;
   font-size: 1rem;
   border-radius: var(--element-radius);
   color: var(--element-color-on);
-  text-transform: none; /* keep content readable inside shaped elements */
+  text-transform: none;
   transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
   box-shadow: var(--element-shadow);
   border: 2px solid rgba(0,0,0,0.06);
   text-align: center;
+  overflow: hidden;
+  word-break: break-word;
+  white-space: pre-line;
+}
 }
 
 .element:focus-visible {
-  outline: 3px solid rgba(0,0,0,0.12);
-  outline-offset: 4px;
+  outline: 3px solid #1E90FF;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(30,144,255,0.15);
 }
 
 .node-label {
@@ -68,4 +73,9 @@ body,
   letter-spacing: 0.3px;
   line-height: 1.4;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  overflow-wrap: break-word;
+  white-space: pre-line;
+  padding: 0 4px;
+  max-width: 90%;
+  box-sizing: border-box;
 }
