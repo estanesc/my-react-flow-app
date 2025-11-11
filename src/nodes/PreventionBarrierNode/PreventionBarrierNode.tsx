@@ -1,4 +1,6 @@
 import { Handle, Position } from '@xyflow/react';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 import './PreventionBarrierNode.css';
 
 interface PreventionBarrierNodeProps {
@@ -9,7 +11,8 @@ interface PreventionBarrierNodeProps {
 
 const PreventionBarrierNode: React.FC<PreventionBarrierNodeProps> = ({ data }) => {
   return (
-    <div className="element preventive-barrier svg-node">
+    <Tippy content={data.label} placement="top" arrow={true}>
+      <div className="element preventive-barrier svg-node">
       <Handle type="target" position={Position.Left} style={{ top: '50%', transform: 'translateY(-50%)' }} />
 
       <svg className="svg-node__graphic" viewBox="0 0 100 60" width="120" height="60" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" pointerEvents="none">
@@ -25,7 +28,8 @@ const PreventionBarrierNode: React.FC<PreventionBarrierNodeProps> = ({ data }) =
       </div>
 
       <Handle type="source" position={Position.Right} style={{ top: '50%', transform: 'translateY(-50%)' }} />
-    </div>
+      </div>
+    </Tippy>
   );
 };
 

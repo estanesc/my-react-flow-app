@@ -1,4 +1,6 @@
 import { Handle, Position } from '@xyflow/react';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 import './ThreatNode.css';
 
 interface ThreatNodeProps {
@@ -9,7 +11,8 @@ interface ThreatNodeProps {
 
 const ThreatNode: React.FC<ThreatNodeProps> = ({ data }) => {
   return (
-    <div className="element threat svg-node">
+    <Tippy content={data.label} placement="top" arrow={true}>
+      <div className="element threat svg-node">
       <svg
         className="svg-node__graphic"
         viewBox="0 0 100 60"
@@ -30,7 +33,8 @@ const ThreatNode: React.FC<ThreatNodeProps> = ({ data }) => {
       </div>
 
       <Handle type="source" position={Position.Right} style={{ top: '50%', transform: 'translateY(-50%)' }} />
-    </div>
+      </div>
+    </Tippy>
   );
 };
 

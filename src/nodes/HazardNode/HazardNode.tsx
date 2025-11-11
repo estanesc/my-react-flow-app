@@ -1,4 +1,6 @@
 import { Handle, Position } from '@xyflow/react';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 import './HazardNode.css';
 
 interface HazardNodeProps {
@@ -9,7 +11,8 @@ interface HazardNodeProps {
 
 const HazardNode: React.FC<HazardNodeProps> = ({ data }) => {
   return (
-    <div className="element hazard svg-node" role="group" aria-label={data.label}>
+    <Tippy content={data.label} placement="top" arrow={true}>
+      <div className="element hazard svg-node" role="group" aria-label={data.label}>
       {/* Left target handle (centered vertically) */}
       <Handle
         type="target"
@@ -52,7 +55,8 @@ const HazardNode: React.FC<HazardNodeProps> = ({ data }) => {
 
       {/* Bottom source for flows that connect downward */}
       <Handle id="hazard-bottom" type="source" position={Position.Bottom} />
-    </div>
+      </div>
+    </Tippy>
   );
 };
 

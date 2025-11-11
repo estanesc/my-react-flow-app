@@ -1,4 +1,6 @@
 import { Handle, Position } from '@xyflow/react';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 import './ConsequenceNode.css';
 
 interface ConsequenceNodeProps {
@@ -9,7 +11,8 @@ interface ConsequenceNodeProps {
 
 const ConsequenceNode: React.FC<ConsequenceNodeProps> = ({ data }) => {
   return (
-    <div className="element consequence svg-node">
+    <Tippy content={data.label} placement="top" arrow={true}>
+      <div className="element consequence svg-node">
       <Handle type="target" position={Position.Left} style={{ top: '50%', transform: 'translateY(-50%)' }} />
 
       <svg className="svg-node__graphic" viewBox="0 0 100 60" width="120" height="60" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" pointerEvents="none">
@@ -22,7 +25,8 @@ const ConsequenceNode: React.FC<ConsequenceNodeProps> = ({ data }) => {
       <div className="node-label">
         <strong>{data.label}</strong>
       </div>
-    </div>
+      </div>
+    </Tippy>
   );
 };
 

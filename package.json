@@ -9,10 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tippyjs/react": "^4.2.6",
     "@xyflow/react": "^12.5.1",
     "elkjs": "^0.11.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tippy.js": "^6.3.7"
   },
   "license": "MIT",
   "devDependencies": {
