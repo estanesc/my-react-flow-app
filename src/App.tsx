@@ -46,6 +46,7 @@ function FlowComponent() {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const [nodesReadyFlag, setNodesReadyFlag] = useState(false);
+  const { toObject, setViewport } = useReactFlow();
 
   const onConnect: OnConnect = useCallback(
     (connection) => {
@@ -54,6 +55,54 @@ function FlowComponent() {
     },
     [setEdges]
   );
+
+  // Save diagram as JSON file
+  const onSave = useCallback(() => {
+    const flow = toObject();
+    const dataStr = JSON.stringify(flow, null, 2);
+    const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+    const exportFileDefaultName = `bowtie-diagram-${new Date().toISOString().slice(0, 10)}.json`;
+    
+    const linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.click();
+    console.log('Diagram saved as file!');
+  }, [toObject]);
+
+  // Load diagram from JSON file
+  const onLoad = useCallback(() => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    
+    input.onchange = (e: Event) => {
+      const target = e.target as HTMLInputElement;
+      const file = target.files?.[0];
+      
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          try {
+            const flow = JSON.parse(event.target?.result as string);
+            setNodes(flow.nodes || []);
+            setEdges(flow.edges || []);
+            if (flow.viewport) {
+              setViewport(flow.viewport);
+            }
+            console.log('Diagram loaded from file!', flow);
+            alert('Diagram loaded successfully!');
+          } catch (error) {
+            console.error('Error loading diagram:', error);
+            alert('Error loading diagram file. Please check the file format.');
+          }
+        };
+        reader.readAsText(file);
+      }
+    };
+    
+    input.click();
+  }, [setNodes, setEdges, setViewport]);
 
   const applyLayoutAndFit = useCallback(
     (sourceNodes: typeof initialNodes, sourceEdges: typeof initialEdges) => {
@@ -108,8 +157,16 @@ function FlowComponent() {
     >
       <FlowInner nodesReadyFlag={nodesReadyFlag} />
 
-      <div style={{ position: 'absolute', top: 10, right: 10, zIndex: 10 }}>
-        <button onClick={onLayout} style={{ userSelect: 'none' }}>Run Auto-Layout</button>
+      <div style={{ position: 'absolute', top: 10, right: 10, zIndex: 10, display: 'flex', gap: '8px', flexDirection: 'column' }}>
+        <button onClick={onLayout} style={{ userSelect: 'none', padding: '8px 12px', cursor: 'pointer' }}>
+          Run Auto-Layout
+        </button>
+        <button onClick={onSave} style={{ userSelect: 'none', padding: '8px 12px', cursor: 'pointer', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '4px' }}>
+          Save Diagram
+        </button>
+        <button onClick={onLoad} style={{ userSelect: 'none', padding: '8px 12px', cursor: 'pointer', backgroundColor: '#2196F3', color: 'white', border: 'none', borderRadius: '4px' }}>
+          Load Diagram
+        </button>
       </div>
     </ReactFlow>
   );
