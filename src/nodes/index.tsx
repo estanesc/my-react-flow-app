@@ -105,5 +105,6 @@ export const initialNodes = [
       measured: { width: 203, height: 130 },
       selected: false,
       dragging: false,
+      
     },
 ] as unknown as AppNode[];
