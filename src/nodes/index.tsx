@@ -70,4 +70,31 @@ export const initialNodes = [
         description: 'Barrier that prevents threats from leading to the Top Event.'
       },
     },
+    {
+      id: 'mitigationBarrierNode-1',
+      type: 'mitigationBarrierNode',
+      position: { x: 520, y: -30 },
+      data: {
+        label: 'Batch Recall Process',
+        description: 'Mitigation barrier that reduces impact after the Top Event occurs.'
+      },
+    },
+    {
+      id: 'mitigationBarrierNode-2',
+      type: 'mitigationBarrierNode',
+      position: { x: 520, y: 150 },
+      data: {
+        label: 'Customer Alert System',
+        description: 'Mitigation barrier for reducing consequences through rapid correction.'
+      },
+    },
+    {
+      id: 'mitigationBarrierNode-3',
+      type: 'mitigationBarrierNode',
+      position: { x: 520, y: 330 },
+      data: {
+        label: 'Crisis Response Team',
+        description: 'Mitigation barrier that limits contamination spread by controlling temperature.'
+      },
+    },
 ] as unknown as AppNode[];
