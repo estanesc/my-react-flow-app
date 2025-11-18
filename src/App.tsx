@@ -208,10 +208,11 @@ function FlowComponent() {
     applyLayoutAndFit(nodes, edges);
   }, [nodes, edges, applyLayoutAndFit]);
 
-  useLayoutEffect(() => {
-    // run initial layout once on mount using the initial data
-    applyLayoutAndFit(initialNodes, initialEdges);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  // Initial auto-layout on mount disabled to preserve `initialNodes` positions.
+  // If you want to enable automatic layout on first load, uncomment below.
+  // useLayoutEffect(() => {
+  //   applyLayoutAndFit(initialNodes, initialEdges);
+  // }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <ReactFlow
