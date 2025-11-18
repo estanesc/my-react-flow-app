@@ -73,28 +73,37 @@ export const initialNodes = [
     {
       id: 'mitigationBarrierNode-1',
       type: 'mitigationBarrierNode',
-      position: { x: 520, y: -30 },
+      position: { x: 656.4574723087613, y: -44.2390405887403 },
       data: {
         label: 'Batch Recall Process',
         description: 'Mitigation barrier that reduces impact after the Top Event occurs.'
       },
+      measured: { width: 197, height: 130 },
+      selected: false,
+      dragging: false,
     },
     {
       id: 'mitigationBarrierNode-2',
       type: 'mitigationBarrierNode',
-      position: { x: 520, y: 150 },
+      position: { x: 652.8977121615762, y: 183.22442804039406 },
       data: {
         label: 'Customer Alert System',
         description: 'Mitigation barrier for reducing consequences through rapid correction.'
       },
+      measured: { width: 211, height: 130 },
+      selected: false,
+      dragging: false,
     },
     {
       id: 'mitigationBarrierNode-3',
       type: 'mitigationBarrierNode',
-      position: { x: 520, y: 330 },
+      position: { x: 623.2330442683672, y: 440.35256456273737 },
       data: {
         label: 'Crisis Response Team',
         description: 'Mitigation barrier that limits contamination spread by controlling temperature.'
       },
+      measured: { width: 203, height: 130 },
+      selected: false,
+      dragging: false,
     },
 ] as unknown as AppNode[];
