@@ -14,14 +14,6 @@ const HazardNode: React.FC<HazardNodeProps> = ({ data }) => {
   return (
     <Tippy content={data.description} placement="top" arrow={true}>
       <div className="element hazard svg-node" role="group" aria-label={data.label}>
-      {/* Left target handle (centered vertically) */}
-      <Handle
-        type="target"
-        position={Position.Left}
-        id="hazard-left"
-        style={{ top: '50%', transform: 'translateY(-50%)' }}
-      />
-
       {/* Inline SVG graphic for crisp vector rendering */}
       <svg
         className="svg-node__graphic"
@@ -45,14 +37,6 @@ const HazardNode: React.FC<HazardNodeProps> = ({ data }) => {
       <div className="node-label">
         <strong>{data.label}</strong>
       </div>
-
-      {/* Right source handle (centered vertically) */}
-      <Handle
-        type="source"
-        position={Position.Right}
-        id="hazard-right"
-        style={{ top: '50%', transform: 'translateY(-50%)' }}
-      />
 
       {/* Bottom source for flows that connect downward */}
       <Handle id="hazard-bottom" type="source" position={Position.Bottom} />

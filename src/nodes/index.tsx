@@ -25,84 +25,49 @@ export const nodeTypes = {
 } satisfies NodeTypes;
 
 export const initialNodes = [
-    {
-    id: 'positionLogger-1',
-    type: 'positionLoggerNode',
-      position: { x: 0, y: 0 },
-    data: {
-      label: 'Position Logger',
-    },
-  },
   {
-    id: 'consequenceNode-1',
-    type: 'consequenceNode',
-      position: { x: 0, y: 0 },
-    data: {
-      label: 'Consequence',
-      description: 'Represents the possible outcomes or impacts resulting from the Top Event in a Bowtie diagram.'
-    },
-  },
-  {
-    id: 'degradationControlNode-1',
-    type: 'degradationControlNode',
-      position: { x: 0, y: 0 },
-    data: {
-      label: 'Degradation Control',
-      description: 'Represents measures that help maintain the effectiveness of barriers and controls in the Bowtie diagram.'
-    },
-  },
-  {
-    id: 'degradationFactorNode-1',
-    type: 'degradationFactorNode',
-      position: { x: 0, y: 0 },
-    data: {
-      label: 'Degradation Factor',
-      description: 'Indicates factors that can reduce the effectiveness of barriers or controls in the Bowtie diagram.'
-    },
-  },
-  {
-    id: 'hazardNode-1',
+    id: 'hazardNode',
     type: 'hazardNode',
-      position: { x: 0, y: 0 },
+      position: { x: 262.2367488655181, y: -66.85199253085085 },
     data: {
-      label: 'Hazard',
-      description: 'Represents a source of potential harm or danger in the Bowtie diagram.'
+      label: 'Unsanitary Environment',
+      description: 'Tooltip description'
     },
   },
-  {
-    id: 'mitigationBarrierNode-1',
-    type: 'mitigationBarrierNode',
-      position: { x: 0, y: 0 },
+    {
+    id: 'topEventNode',
+    type: 'topEventNode',
+      position: { x: 262, y: 175 },
     data: {
-      label: 'Mitigation Barrier',
-      description: 'Barriers that reduce the consequences or impact after the Top Event has occurred in the Bowtie diagram.'
+      label: 'Ice Cream Contaminated',
+      description: 'Tooltip description'
     },
   },
   {
     id: 'preventionBarrierNode-1',
     type: 'preventionBarrierNode',
-      position: { x: 0, y: 0 },
+    position: { x: -91.71330892826481, y: -54.74665894781488 },
     data: {
-      label: 'Prevention Barrier',
-      description: 'Barriers that prevent threats from leading to the Top Event in the Bowtie diagram.'
-    },
-  },
-  {
-    id: 'threatNode-1',
-    type: 'threatNode',
-      position: { x: 0, y: 0 },
-    data: {
-      label: 'Threat',
-      description: 'Represents events or conditions that can trigger the Top Event in the Bowtie diagram.'
+      label: 'Employee Hygiene Training',
+      description: 'Barrier that prevents threats from leading to the Top Event.'
     },
   },
     {
-    id: 'topEvent-1',
-    type: 'topEventNode',
-      position: { x: 0, y: 0 },
-    data: {
-      label: 'Top Event',
-      description: 'The central event in the Bowtie diagram, representing the point where control is lost and consequences may occur.'
+      id: 'preventionBarrierNode-2',
+      type: 'preventionBarrierNode',
+      position: { x: -98.78467090064649, y: 157.75256406330485 },
+      data: {
+        label: 'Daily Equipment Sanitation',
+        description: 'Barrier that prevents threats from leading to the Top Event.'
+      },
     },
-  },
+    {
+      id: 'preventionBarrierNode-3',
+      type: 'preventionBarrierNode',
+      position: { x: -92.89186925699508, y: 360.5684094146367 },
+      data: {
+        label: 'Supplier QA Program',
+        description: 'Barrier that prevents threats from leading to the Top Event.'
+      },
+    },
 ] as unknown as AppNode[];

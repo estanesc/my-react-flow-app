@@ -14,7 +14,9 @@ const TopEventNode: React.FC<TopEventNodeProps> = ({ data }) => {
   return (
     <Tippy content={data.description} placement="top" arrow={true}>
       <div className="element top-event svg-node">
-      <Handle id="topevent-left" type="target" position={Position.Left} style={{ top: '50%', transform: 'translateY(-50%)' }} />
+      <Handle id="topevent-left-1" type="target" position={Position.Left} style={{ top: '35%', transform: 'translateY(-35%)' }} />
+      <Handle id="topevent-left-2" type="target" position={Position.Left} style={{ top: '50%', transform: 'translateY(-50%)' }} />
+      <Handle id="topevent-left-3" type="target" position={Position.Left} style={{ top: '75%', transform: 'translateY(-75%)' }} />
 
       <svg className="svg-node__graphic" viewBox="0 0 100 60" width="120" height="60" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" pointerEvents="none">
         <rect className="svg-bg" x="0" y="0" width="100" height="60" rx="10" />
@@ -28,7 +30,9 @@ const TopEventNode: React.FC<TopEventNodeProps> = ({ data }) => {
         <strong>{data.label}</strong>
       </div>
 
-      <Handle id="topevent-right" type="source" position={Position.Right} style={{ top: '50%', transform: 'translateY(-50%)' }} />
+      <Handle id="topevent-right-1" type="source" position={Position.Right} style={{ top: '35%', transform: 'translateY(-35%)' }} />
+      <Handle id="topevent-right-2" type="source" position={Position.Right} style={{ top: '50%', transform: 'translateY(-50%)' }} />
+      <Handle id="topevent-right-3" type="source" position={Position.Right} style={{ top: '75%', transform: 'translateY(-75%)' }} />
       <Handle id="topevent-top" type="target" position={Position.Top} />
       </div>
     </Tippy>

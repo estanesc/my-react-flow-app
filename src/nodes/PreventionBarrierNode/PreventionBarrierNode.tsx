@@ -14,7 +14,7 @@ const PreventionBarrierNode: React.FC<PreventionBarrierNodeProps> = ({ data }) =
   return (
     <Tippy content={data.description} placement="top" arrow={true}>
       <div className="element preventive-barrier svg-node">
-      <Handle type="target" position={Position.Left} style={{ top: '50%', transform: 'translateY(-50%)' }} />
+      <Handle id="topevent-left" type="target" position={Position.Left} style={{ top: '50%', transform: 'translateY(-50%)' }} />
 
       <svg className="svg-node__graphic" viewBox="0 0 100 60" width="120" height="60" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" pointerEvents="none">
         <rect className="svg-bg" x="0" y="0" width="100" height="60" rx="6" />
@@ -27,8 +27,8 @@ const PreventionBarrierNode: React.FC<PreventionBarrierNodeProps> = ({ data }) =
       <div className="node-label">
         <strong>{data.label}</strong>
       </div>
-
-      <Handle type="source" position={Position.Right} style={{ top: '50%', transform: 'translateY(-50%)' }} />
+<Handle id="topevent-bottom" type="source" position={Position.Bottom} />
+      <Handle id="topevent-right" type="source" position={Position.Right} style={{ top: '50%', transform: 'translateY(-50%)' }} />
       </div>
     </Tippy>
   );

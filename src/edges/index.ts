@@ -1,50 +1,37 @@
 import type { Edge, EdgeTypes } from '@xyflow/react';
 
 export const initialEdges: Edge[] = [
-  // Threat -> Prevention Barrier
-  { 
-    id: 'threat-prevention',
-    source: 'threatNode-1',
-    target: 'preventionBarrierNode-1',
-  },
-  // Prevention Barrier -> Top Event
+  // Hazard bottom -> Top Event top
   {
-    id: 'prevention-topevent',
-    source: 'preventionBarrierNode-1',
-    target: 'topEvent-1',
-  },
-  // Hazard -> Top Event
-  {
-    id: 'hazard-topevent',
-    source: 'hazardNode-1',
-    target: 'topEvent-1',
+    id: 'hazard-to-topevent',
+    source: 'hazardNode',
+    sourceHandle: 'hazard-bottom',
+    target: 'topEventNode',
     targetHandle: 'topevent-top',
   },
-  // Top Event -> Mitigation Barrier
+
+  // Connect each prevention barrier (right) -> top event (left)
   {
-    id: 'topevent-mitigation',
-    source: 'topEvent-1',
-    target: 'mitigationBarrierNode-1',
+    id: 'prevention-1-to-topevent',
+    source: 'preventionBarrierNode-1',
+    sourceHandle: 'topevent-right',
+    target: 'topEventNode',
+    targetHandle: 'topevent-left-1',
   },
-  // Mitigation Barrier -> Consequence
   {
-    id: 'mitigation-consequence',
-    source: 'mitigationBarrierNode-1',
-    target: 'consequenceNode-1',
+    id: 'prevention-2-to-topevent',
+    source: 'preventionBarrierNode-2',
+    sourceHandle: 'topevent-right',
+    target: 'topEventNode',
+    targetHandle: 'topevent-left-2',
   },
-  // Degradation Factor -> Degradation Control
   {
-    id: 'degradfactor-degradcontrol',
-    source: 'degradationFactorNode-1',
-    target: 'degradationControlNode-1',
+    id: 'prevention-3-to-topevent',
+    source: 'preventionBarrierNode-3',
+    sourceHandle: 'topevent-right',
+    target: 'topEventNode',
+    targetHandle: 'topevent-left-3',
   },
-  // Degradation Control -> Prevention Barrier
-  {
-    id: 'degradcontrol-prevention',
-    source: 'degradationControlNode-1',
-    target: 'preventionBarrierNode-1',
-    type: 'default'
-  }
 ];
 
 export const edgeTypes = {
