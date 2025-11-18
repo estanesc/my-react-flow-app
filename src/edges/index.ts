@@ -32,6 +32,25 @@ export const initialEdges: Edge[] = [
     target: 'topEventNode',
     targetHandle: 'topevent-left-3',
   },
+  // Top Event right handles -> Mitigation barriers (left)
+  {
+    id: 'topevent-right-1-to-mitigation-1',
+    source: 'topEventNode',
+    sourceHandle: 'topevent-right-1',
+    target: 'mitigationBarrierNode-1',
+  },
+  {
+    id: 'topevent-right-2-to-mitigation-2',
+    source: 'topEventNode',
+    sourceHandle: 'topevent-right-2',
+    target: 'mitigationBarrierNode-2',
+  },
+  {
+    id: 'topevent-right-3-to-mitigation-3',
+    source: 'topEventNode',
+    sourceHandle: 'topevent-right-3',
+    target: 'mitigationBarrierNode-3',
+  },
 ];
 
 export const edgeTypes = {
