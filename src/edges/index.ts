@@ -67,7 +67,7 @@ export const initialEdges: Edge[] = [
     source: 'mitigationBarrierNode-3',
     target: 'consequenceNode-3',
   },
-  // Degradation factor -> Degradation control (Manager Inspections)
+  // Degradation factor node -> Degradation control (Manager Inspections)
   {
     id: 'degradationfactor-1-to-control-1',
     source: 'degradationFactorNode-1',
