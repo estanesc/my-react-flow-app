@@ -146,12 +146,24 @@ export const initialNodes = [
     {
       id: 'degradationFactorNode-1',
       type: 'degradationFactorNode',
-      position: { x: -406.77475439512926, y: 629.0570602657923 },
+      position: { x: -520.7803244283552, y: 581.5246550664629 },
       data: {
         label: 'Skipped Clean Logs',
         description: 'Performance degradation over time that increases failure likelihood.'
       },
       measured: { width: 150, height: 130 },
+      selected: false,
+      dragging: false,
+    },
+    {
+      id: 'degradationControlNode-1',
+      type: 'degradationControlNode',
+      position: { x: -240.98144783234412, y: 606.27671299142 },
+      data: {
+        label: 'Manager Inspections',
+        description: 'Routine maintenance that reduces degradation and failure probability.'
+      },
+      measured: { width: 160, height: 130 },
       selected: false,
       dragging: false,
     },

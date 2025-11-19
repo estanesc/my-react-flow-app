@@ -27,7 +27,7 @@ const PreventionBarrierNode: React.FC<PreventionBarrierNodeProps> = ({ data }) =
       <div className="node-label">
         <strong>{data.label}</strong>
       </div>
-<Handle id="topevent-bottom" type="source" position={Position.Bottom} />
+<Handle id="topevent-bottom" type="target" position={Position.Bottom} />
       <Handle id="topevent-right" type="source" position={Position.Right} style={{ top: '50%', transform: 'translateY(-50%)' }} />
       </div>
     </Tippy>
