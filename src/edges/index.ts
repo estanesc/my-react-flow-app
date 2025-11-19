@@ -67,6 +67,22 @@ export const initialEdges: Edge[] = [
     source: 'mitigationBarrierNode-3',
     target: 'consequenceNode-3',
   },
+  // Threat nodes -> Prevention barriers
+  {
+    id: 'threat-1-to-prevention-1',
+    source: 'threatNode-1',
+    target: 'preventionBarrierNode-1',
+  },
+  {
+    id: 'threat-2-to-prevention-2',
+    source: 'threatNode-2',
+    target: 'preventionBarrierNode-2',
+  },
+  {
+    id: 'threat-3-to-prevention-3',
+    source: 'threatNode-3',
+    target: 'preventionBarrierNode-3',
+  },
 ];
 
 export const edgeTypes = {
