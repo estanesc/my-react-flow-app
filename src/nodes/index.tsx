@@ -110,36 +110,36 @@ export const initialNodes = [
     {
       id: 'consequenceNode-1',
       type: 'consequenceNode',
-      position: { x: 880, y: -44 },
+      position: { x: 981.9516995315196, y: -39.86682299196542 },
       data: {
         label: 'Public Health Impact',
         description: 'Adverse health outcomes from contaminated product.'
       },
-      measured: { width: 120, height: 60 },
+      measured: { width: 193, height: 130 },
       selected: false,
       dragging: false,
     },
     {
       id: 'consequenceNode-2',
       type: 'consequenceNode',
-      position: { x: 880, y: 183 },
+      position: { x: 1008.1284872490717, y: 183.00000000000003 },
       data: {
         label: 'Financial Loss',
         description: 'Costs from recalls, lost sales, and regulatory fines.'
       },
-      measured: { width: 120, height: 60 },
+      measured: { width: 142, height: 130 },
       selected: false,
       dragging: false,
     },
     {
       id: 'consequenceNode-3',
       type: 'consequenceNode',
-      position: { x: 880, y: 440 },
+      position: { x: 965.4189914993813, y: 441.37772566934484 },
       data: {
         label: 'Brand Reputation Damage',
         description: 'Long-term loss of customer trust and market share.'
       },
-      measured: { width: 120, height: 60 },
+      measured: { width: 237, height: 130 },
       selected: false,
       dragging: false,
     },
