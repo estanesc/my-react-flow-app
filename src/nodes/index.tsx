@@ -146,9 +146,9 @@ export const initialNodes = [
     {
       id: 'degradationFactorNode-1',
       type: 'degradationFactorNode',
-      position: { x: 820, y: 120 },
+      position: { x: -406.77475439512926, y: 629.0570602657923 },
       data: {
-        label: 'Equipment Wear',
+        label: 'Skipped Clean Logs',
         description: 'Performance degradation over time that increases failure likelihood.'
       },
       measured: { width: 150, height: 130 },
