@@ -19,6 +19,8 @@ import '@xyflow/react/dist/style.css';
 import { initialNodes, nodeTypes } from './nodes';
 import { initialEdges, edgeTypes } from './edges';
 import { getLayoutedElements } from './utils/elkLayout';
+import NodeDetails from './components/NodeDetails';
+import type { AppNode } from './nodes/types';
 
 function FlowInner({ nodesReadyFlag }: { nodesReadyFlag: boolean }) {
   const { fitView } = useReactFlow();
@@ -46,6 +48,7 @@ function FlowInner({ nodesReadyFlag }: { nodesReadyFlag: boolean }) {
 function FlowComponent() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
 
   const [nodesReadyFlag, setNodesReadyFlag] = useState(false);
   const { toObject, setViewport } = useReactFlow();
@@ -236,6 +239,11 @@ function FlowComponent() {
   // It remains available for manual layout triggers (see commented usage below).
   void applyLayoutAndFit;
 
+  const selectedNode = nodes.find((n) => n.id === selectedNodeId) ?? null;
+
+  
+
+
   // Initial auto-layout on mount disabled to preserve `initialNodes` positions.
   // If you want to enable automatic layout on first load, uncomment below.
   // useLayoutEffect(() => {
@@ -251,9 +259,22 @@ function FlowComponent() {
       edgeTypes={edgeTypes}
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
+      onNodeClick={(_, node) => {
+        setSelectedNodeId(node.id);
+      }}
+      onPaneClick={() => setSelectedNodeId(null)}
       proOptions={{ hideAttribution: false }}
     >
       <FlowInner nodesReadyFlag={nodesReadyFlag} />
+
+      {/* Node details panel (appears when a node is selected) */}
+      <NodeDetails
+        node={selectedNode}
+        onSave={(id, data) => {
+          setNodes((nds) => (nds.map((n) => (n.id === id ? ({ ...n, data: { ...n.data, ...data } }) : n)) as unknown) as AppNode[]);
+        }}
+        onClose={() => setSelectedNodeId(null)}
+      />
 
       <div style={{ position: 'absolute', top: 10, right: 10, zIndex: 10, display: 'flex', gap: '8px', flexDirection: 'column' }}>
         <button onClick={onSave} style={{ userSelect: 'none', padding: '8px 12px', cursor: 'pointer', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '4px' }}>
