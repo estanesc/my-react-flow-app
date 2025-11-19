@@ -126,11 +126,25 @@ function FlowComponent() {
     const originalCursor = document.body.style.cursor;
     document.body.style.cursor = 'wait';
 
+    // Inject temporary styles to make sure SVG edges/paths are visible to html2canvas
+    const tmpStyle = document.createElement('style');
+    tmpStyle.setAttribute('data-html2canvas-fix', 'true');
+    tmpStyle.innerHTML = `
+      .react-flow svg path, .react-flow svg line, .react-flow svg polyline {
+        stroke: #222 !important;
+        stroke-width: 1.5px !important;
+        fill: none !important;
+      }
+      .react-flow svg { background: transparent; }
+    `;
+    flowElement.appendChild(tmpStyle);
+
     html2canvas(flowElement, {
       backgroundColor: '#ffffff',
-      scale: 2, // Higher quality
+      scale: Math.max(2, window.devicePixelRatio || 1), // Higher quality and device-aware
       logging: false,
       useCORS: true,
+      foreignObjectRendering: true,
     }).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
       
@@ -171,10 +185,16 @@ function FlowComponent() {
       const fileName = `bowtie-diagram-${new Date().toISOString().slice(0, 10)}.pdf`;
       pdf.save(fileName);
       
+      // cleanup temporary style
+      tmpStyle.remove();
+
       document.body.style.cursor = originalCursor;
       console.log('Diagram exported to PDF!');
     }).catch((error) => {
       console.error('Error exporting to PDF:', error);
+      // cleanup temporary style if present
+      const existing = document.querySelector('style[data-html2canvas-fix]');
+      if (existing) existing.remove();
       document.body.style.cursor = originalCursor;
       alert('Error exporting diagram to PDF');
     });
