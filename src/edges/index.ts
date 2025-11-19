@@ -67,6 +67,18 @@ export const initialEdges: Edge[] = [
     source: 'mitigationBarrierNode-3',
     target: 'consequenceNode-3',
   },
+  // Degradation factor -> Degradation control (Manager Inspections)
+  {
+    id: 'degradationfactor-1-to-control-1',
+    source: 'degradationFactorNode-1',
+    target: 'degradationControlNode-1',
+  },
+  {
+    id: 'control-1-right-to-prevention-3-bottom',
+    source: 'degradationControlNode-1',
+    target: 'preventionBarrierNode-3',
+    targetHandle: 'topevent-bottom',
+  },
   // Threat nodes -> Prevention barriers
   {
     id: 'threat-1-to-prevention-1',
