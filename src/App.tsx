@@ -204,10 +204,6 @@ function FlowComponent() {
     [setNodes, setEdges]
   );
 
-  const onLayout = useCallback(() => {
-    applyLayoutAndFit(nodes, edges);
-  }, [nodes, edges, applyLayoutAndFit]);
-
   // Initial auto-layout on mount disabled to preserve `initialNodes` positions.
   // If you want to enable automatic layout on first load, uncomment below.
   // useLayoutEffect(() => {
@@ -228,9 +224,6 @@ function FlowComponent() {
       <FlowInner nodesReadyFlag={nodesReadyFlag} />
 
       <div style={{ position: 'absolute', top: 10, right: 10, zIndex: 10, display: 'flex', gap: '8px', flexDirection: 'column' }}>
-        <button onClick={onLayout} style={{ userSelect: 'none', padding: '8px 12px', cursor: 'pointer' }}>
-          Run Auto-Layout
-        </button>
         <button onClick={onSave} style={{ userSelect: 'none', padding: '8px 12px', cursor: 'pointer', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '4px' }}>
           Save Diagram
         </button>
