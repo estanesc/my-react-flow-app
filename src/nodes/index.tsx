@@ -31,7 +31,7 @@ export const initialNodes = [
       position: { x: 262.2367488655181, y: -66.85199253085085 },
     data: {
       label: 'Unsanitary Environment',
-      description: 'Tooltip description'
+      description: 'Hazard: Tooltip description'
     },
   },
     {
@@ -40,7 +40,7 @@ export const initialNodes = [
       position: { x: 262, y: 175 },
     data: {
       label: 'Ice Cream Contaminated',
-      description: 'Tooltip description'
+      description: 'Top Event: Tooltip description'
     },
   },
   {
@@ -49,7 +49,7 @@ export const initialNodes = [
     position: { x: -91.71330892826481, y: -54.74665894781488 },
     data: {
       label: 'Employee Hygiene Training',
-      description: 'Barrier that prevents threats from leading to the Top Event.'
+      description: 'Prevention Barrier: Barrier that prevents threats from leading to the Top Event.'
     },
   },
     {
@@ -58,7 +58,7 @@ export const initialNodes = [
       position: { x: -98.78467090064649, y: 157.75256406330485 },
       data: {
         label: 'Daily Equipment Sanitation',
-        description: 'Barrier that prevents threats from leading to the Top Event.'
+        description: 'Prevention Barrier: Barrier that prevents threats from leading to the Top Event.'
       },
     },
     {
@@ -67,7 +67,7 @@ export const initialNodes = [
       position: { x: -92.89186925699508, y: 360.5684094146367 },
       data: {
         label: 'Supplier QA Program',
-        description: 'Barrier that prevents threats from leading to the Top Event.'
+        description: 'Prevention Barrier: Barrier that prevents threats from leading to the Top Event.'
       },
     },
     {
@@ -76,7 +76,7 @@ export const initialNodes = [
       position: { x: -398.8349875625903, y: -79.8580575041961 },
       data: {
         label: 'Infected Employee',
-        description: 'Contaminants introduced from supplier materials.'
+        description: 'Threat: Contaminants introduced from supplier materials.'
       },
       measured: { width: 175, height: 130 },
       selected: false,
@@ -88,7 +88,7 @@ export const initialNodes = [
       position: { x: -440.49542611515704, y: 157.42588990441504 },
       data: {
         label: 'Contaminated Equipment',
-        description: 'Improper temperature control leading to spoilage.'
+        description: 'Threat: Improper temperature control leading to spoilage.'
       },
       measured: { width: 229, height: 130 },
       selected: true,
@@ -100,7 +100,7 @@ export const initialNodes = [
       position: { x: -416.1333384083256, y: 394.1773152406438 },
       data: {
         label: 'Employee Mishandling',
-        description: 'Handling errors that introduce contamination.'
+        description: 'Threat: Handling errors that introduce contamination.'
       },
       measured: { width: 206, height: 130 },
       selected: false,
@@ -112,7 +112,7 @@ export const initialNodes = [
       position: { x: 656.4574723087613, y: -44.2390405887403 },
       data: {
         label: 'Unsafe Raw Materials',
-        description: 'Mitigation barrier that reduces impact after the Top Event occurs.'
+        description: 'Mitigation Barrier: Mitigation barrier that reduces impact after the Top Event occurs.'
       },
       measured: { width: 197, height: 130 },
       selected: false,
@@ -124,7 +124,7 @@ export const initialNodes = [
       position: { x: 652.8977121615762, y: 183.22442804039406 },
       data: {
         label: 'Customer Alert System',
-        description: 'Mitigation barrier for reducing consequences through rapid correction.'
+        description: 'Mitigation Barrier: Mitigation barrier for reducing consequences through rapid correction.'
       },
       measured: { width: 211, height: 130 },
       selected: false,
@@ -136,7 +136,7 @@ export const initialNodes = [
       position: { x: 623.2330442683672, y: 440.35256456273737 },
       data: {
         label: 'Crisis Response Team',
-        description: 'Mitigation barrier that limits contamination spread by controlling temperature.'
+        description: 'Mitigation Barrier: Mitigation barrier that limits contamination spread by controlling temperature.'
       },
       measured: { width: 203, height: 130 },
       selected: false,
@@ -149,7 +149,7 @@ export const initialNodes = [
       position: { x: -520.7803244283552, y: 581.5246550664629 },
       data: {
         label: 'Skipped Clean Logs',
-        description: 'Performance degradation over time that increases failure likelihood.'
+        description: 'Degradation Factor: Performance degradation over time that increases failure likelihood.'
       },
       measured: { width: 150, height: 130 },
       selected: false,
@@ -161,7 +161,7 @@ export const initialNodes = [
       position: { x: -240.98144783234412, y: 606.27671299142 },
       data: {
         label: 'Manager Inspections',
-        description: 'Routine maintenance that reduces degradation and failure probability.'
+        description: 'Degradation Control: Routine maintenance that reduces degradation and failure probability.'
       },
       measured: { width: 160, height: 130 },
       selected: false,
@@ -173,7 +173,7 @@ export const initialNodes = [
       position: { x: 981.9516995315196, y: -39.86682299196542 },
       data: {
         label: 'Illness and Lawsuits',
-        description: 'Adverse health outcomes from contaminated product.'
+        description: 'Consequence: Adverse health outcomes from contaminated product.'
       },
       measured: { width: 193, height: 130 },
       selected: false,
@@ -185,7 +185,7 @@ export const initialNodes = [
       position: { x: 1008.1284872490717, y: 183.00000000000003 },
       data: {
         label: 'Brand Reputation Damage',
-        description: 'Costs from recalls, lost sales, and regulatory fines.'
+        description: 'Consequence: Costs from recalls, lost sales, and regulatory fines.'
       },
       measured: { width: 142, height: 130 },
       selected: false,
@@ -197,7 +197,7 @@ export const initialNodes = [
       position: { x: 965.4189914993813, y: 441.37772566934484 },
       data: {
         label: 'Regulatory Penalties',
-        description: 'Long-term loss of customer trust and market share.'
+        description: 'Consequence: Long-term loss of customer trust and market share.'
       },
       measured: { width: 237, height: 130 },
       selected: false,
