@@ -73,37 +73,37 @@ export const initialNodes = [
     {
       id: 'threatNode-1',
       type: 'threatNode',
-      position: { x: -510.89116919341103, y: -60 },
+      position: { x: -398.8349875625903, y: -79.8580575041961 },
       data: {
         label: 'Infected Employee',
         description: 'Contaminants introduced from supplier materials.'
       },
-      measured: { width: 283, height: 130 },
+      measured: { width: 175, height: 130 },
       selected: false,
       dragging: false,
     },
     {
       id: 'threatNode-2',
       type: 'threatNode',
-      position: { x: -380.9212536025688, y: 157.42588990441507 },
+      position: { x: -440.49542611515704, y: 157.42588990441504 },
       data: {
         label: 'Contaminated Equipment',
         description: 'Improper temperature control leading to spoilage.'
       },
-      measured: { width: 167, height: 130 },
-      selected: false,
+      measured: { width: 229, height: 130 },
+      selected: true,
       dragging: false,
     },
     {
       id: 'threatNode-3',
       type: 'threatNode',
-      position: { x: -437.40982859139285, y: 361.55336362660734 },
+      position: { x: -416.1333384083256, y: 394.1773152406438 },
       data: {
         label: 'Employee Mishandling',
         description: 'Handling errors that introduce contamination.'
       },
       measured: { width: 206, height: 130 },
-      selected: true,
+      selected: false,
       dragging: false,
     },
     {
