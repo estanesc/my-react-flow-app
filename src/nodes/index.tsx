@@ -105,6 +105,42 @@ export const initialNodes = [
       measured: { width: 203, height: 130 },
       selected: false,
       dragging: false,
-      
+
+    },
+    {
+      id: 'consequenceNode-1',
+      type: 'consequenceNode',
+      position: { x: 880, y: -44 },
+      data: {
+        label: 'Public Health Impact',
+        description: 'Adverse health outcomes from contaminated product.'
+      },
+      measured: { width: 120, height: 60 },
+      selected: false,
+      dragging: false,
+    },
+    {
+      id: 'consequenceNode-2',
+      type: 'consequenceNode',
+      position: { x: 880, y: 183 },
+      data: {
+        label: 'Financial Loss',
+        description: 'Costs from recalls, lost sales, and regulatory fines.'
+      },
+      measured: { width: 120, height: 60 },
+      selected: false,
+      dragging: false,
+    },
+    {
+      id: 'consequenceNode-3',
+      type: 'consequenceNode',
+      position: { x: 880, y: 440 },
+      data: {
+        label: 'Brand Reputation Damage',
+        description: 'Long-term loss of customer trust and market share.'
+      },
+      measured: { width: 120, height: 60 },
+      selected: false,
+      dragging: false,
     },
 ] as unknown as AppNode[];
