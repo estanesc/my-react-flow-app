@@ -73,36 +73,45 @@ export const initialNodes = [
     {
       id: 'threatNode-1',
       type: 'threatNode',
-      position: { x: -350, y: -60 },
+      position: { x: -510.89116919341103, y: -60 },
       data: {
-        label: 'Contaminated Ingredient Supply',
+        label: 'Infected Employee',
         description: 'Contaminants introduced from supplier materials.'
       },
+      measured: { width: 283, height: 130 },
+      selected: false,
+      dragging: false,
     },
     {
       id: 'threatNode-2',
       type: 'threatNode',
-      position: { x: -350, y: 180 },
+      position: { x: -380.9212536025688, y: 157.42588990441507 },
       data: {
-        label: 'Improper Storage',
+        label: 'Contaminated Equipment',
         description: 'Improper temperature control leading to spoilage.'
       },
+      measured: { width: 167, height: 130 },
+      selected: false,
+      dragging: false,
     },
     {
       id: 'threatNode-3',
       type: 'threatNode',
-      position: { x: -350, y: 370 },
+      position: { x: -437.40982859139285, y: 361.55336362660734 },
       data: {
         label: 'Employee Mishandling',
         description: 'Handling errors that introduce contamination.'
       },
+      measured: { width: 206, height: 130 },
+      selected: true,
+      dragging: false,
     },
     {
       id: 'mitigationBarrierNode-1',
       type: 'mitigationBarrierNode',
       position: { x: 656.4574723087613, y: -44.2390405887403 },
       data: {
-        label: 'Batch Recall Process',
+        label: 'Unsafe Raw Materials',
         description: 'Mitigation barrier that reduces impact after the Top Event occurs.'
       },
       measured: { width: 197, height: 130 },
