@@ -71,6 +71,33 @@ export const initialNodes = [
       },
     },
     {
+      id: 'threatNode-1',
+      type: 'threatNode',
+      position: { x: -350, y: -60 },
+      data: {
+        label: 'Contaminated Ingredient Supply',
+        description: 'Contaminants introduced from supplier materials.'
+      },
+    },
+    {
+      id: 'threatNode-2',
+      type: 'threatNode',
+      position: { x: -350, y: 180 },
+      data: {
+        label: 'Improper Storage',
+        description: 'Improper temperature control leading to spoilage.'
+      },
+    },
+    {
+      id: 'threatNode-3',
+      type: 'threatNode',
+      position: { x: -350, y: 370 },
+      data: {
+        label: 'Employee Mishandling',
+        description: 'Handling errors that introduce contamination.'
+      },
+    },
+    {
       id: 'mitigationBarrierNode-1',
       type: 'mitigationBarrierNode',
       position: { x: 656.4574723087613, y: -44.2390405887403 },
@@ -112,7 +139,7 @@ export const initialNodes = [
       type: 'consequenceNode',
       position: { x: 981.9516995315196, y: -39.86682299196542 },
       data: {
-        label: 'Public Health Impact',
+        label: 'Illness and Lawsuits',
         description: 'Adverse health outcomes from contaminated product.'
       },
       measured: { width: 193, height: 130 },
@@ -124,7 +151,7 @@ export const initialNodes = [
       type: 'consequenceNode',
       position: { x: 1008.1284872490717, y: 183.00000000000003 },
       data: {
-        label: 'Financial Loss',
+        label: 'Brand Reputation Damage',
         description: 'Costs from recalls, lost sales, and regulatory fines.'
       },
       measured: { width: 142, height: 130 },
@@ -136,11 +163,12 @@ export const initialNodes = [
       type: 'consequenceNode',
       position: { x: 965.4189914993813, y: 441.37772566934484 },
       data: {
-        label: 'Brand Reputation Damage',
+        label: 'Regulatory Penalties',
         description: 'Long-term loss of customer trust and market share.'
       },
       measured: { width: 237, height: 130 },
       selected: false,
       dragging: false,
     },
+    
 ] as unknown as AppNode[];
