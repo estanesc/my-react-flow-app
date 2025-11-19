@@ -1,0 +1,24 @@
+/* Overrides for React Flow controls to increase button size */
+.react-flow__controls {
+  gap: 8px;
+}
+.react-flow__controls button {
+  width: 48px !important;
+  height: 48px !important;
+  padding: 6px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12) !important;
+}
+.react-flow__controls button svg {
+  width: 22px !important;
+  height: 22px !important;
+}
+.react-flow__controls button:hover {
+  transform: none !important;
+}
+
+/* Slightly increase the minimap controls (if present) */
+.react-flow__minimap .react-flow__controls button {
+  width: 40px !important;
+  height: 40px !important;
+}
