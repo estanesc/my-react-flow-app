@@ -50,6 +50,12 @@ function FlowComponent() {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
 
+  // Keep node `selected` property in sync with `selectedNodeId` so React Flow
+  // and our custom node styles reflect selection visually.
+  useLayoutEffect(() => {
+    setNodes((nds) => nds.map((n) => ({ ...n, selected: n.id === selectedNodeId })));
+  }, [selectedNodeId, setNodes]);
+
   const [nodesReadyFlag, setNodesReadyFlag] = useState(false);
   const { toObject, setViewport } = useReactFlow();
 

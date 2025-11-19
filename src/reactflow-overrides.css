@@ -22,3 +22,19 @@
   width: 40px !important;
   height: 40px !important;
 }
+
+/* Visual indicator for the selected node (when Node Details is open) */
+.react-flow__node.selected .element,
+.react-flow__node.react-flow__node-selected .element {
+  outline: 3px solid rgba(30,144,255,0.95);
+  outline-offset: 4px;
+  box-shadow: 0 12px 30px rgba(30,144,255,0.12) !important;
+  border-color: rgba(30,144,255,0.9) !important;
+  transform: translateY(-2px);
+}
+
+/* Slightly emphasize the label inside selected node */
+.react-flow__node.selected .node-label,
+.react-flow__node.react-flow__node-selected .node-label {
+  text-shadow: 0 2px 8px rgba(30,144,255,0.12);
+}
