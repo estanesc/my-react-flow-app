@@ -50,6 +50,13 @@ function FlowComponent() {
   const [nodesReadyFlag, setNodesReadyFlag] = useState(false);
   const { toObject, setViewport } = useReactFlow();
 
+  // Ensure the diagram is centered on initial load by triggering the
+  // `nodesReadyFlag` which `FlowInner` listens for to call `fitView`.
+  useLayoutEffect(() => {
+    // Flip the flag once after mount so the child can call `fitView`
+    setNodesReadyFlag(true);
+  }, []);
+
   const onConnect: OnConnect = useCallback(
     (connection) => {
       console.log('New connection established:', connection);
@@ -173,6 +180,7 @@ function FlowComponent() {
     });
   }, []);
 
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const applyLayoutAndFit = useCallback(
     (sourceNodes: typeof initialNodes, sourceEdges: typeof initialEdges) => {
       getLayoutedElements(sourceNodes, sourceEdges).then(({ nodes: layoutedNodes, edges: layoutedEdges }) => {
@@ -203,6 +211,10 @@ function FlowComponent() {
     },
     [setNodes, setEdges]
   );
+  /* eslint-enable @typescript-eslint/no-unused-vars */
+  // Reference the function to avoid "declared but its value is never read" compile errors.
+  // It remains available for manual layout triggers (see commented usage below).
+  void applyLayoutAndFit;
 
   // Initial auto-layout on mount disabled to preserve `initialNodes` positions.
   // If you want to enable automatic layout on first load, uncomment below.
