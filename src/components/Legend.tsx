@@ -1,5 +1,3 @@
-import React from 'react';
-
 const items = [
   { key: 'hazard', label: 'Hazard', colorVar: '--hazard' },
   { key: 'top-event', label: 'Top Event', colorVar: '--top-event' },
