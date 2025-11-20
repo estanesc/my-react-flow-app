@@ -283,13 +283,46 @@ function FlowComponent() {
       />
 
       <div style={{ position: 'absolute', top: 10, right: 10, zIndex: 10, display: 'flex', gap: '8px', flexDirection: 'column' }}>
-        <button onClick={onSave} style={{ userSelect: 'none', padding: '8px 12px', cursor: 'pointer', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '4px' }}>
+        <button
+          onClick={onSave}
+          style={{
+            userSelect: 'none',
+            padding: '8px 12px',
+            cursor: 'pointer',
+            backgroundColor: '#2E7D32', /* muted/darker green */
+            color: 'white',
+            border: '1px solid rgba(0,0,0,0.12)',
+            borderRadius: '4px',
+          }}
+        >
           Save Diagram
         </button>
-        <button onClick={onLoad} style={{ userSelect: 'none', padding: '8px 12px', cursor: 'pointer', backgroundColor: '#2196F3', color: 'white', border: 'none', borderRadius: '4px' }}>
+        <button
+          onClick={onLoad}
+          style={{
+            userSelect: 'none',
+            padding: '8px 12px',
+            cursor: 'pointer',
+            backgroundColor: '#1565C0', /* muted/darker blue */
+            color: 'white',
+            border: '1px solid rgba(0,0,0,0.12)',
+            borderRadius: '4px',
+          }}
+        >
           Load Diagram
         </button>
-        <button onClick={onExportPDF} style={{ userSelect: 'none', padding: '8px 12px', cursor: 'pointer', backgroundColor: '#E91E63', color: 'white', border: 'none', borderRadius: '4px' }}>
+        <button
+          onClick={onExportPDF}
+          style={{
+            userSelect: 'none',
+            padding: '8px 12px',
+            cursor: 'pointer',
+            backgroundColor: '#AD1457', /* darker muted magenta */
+            color: 'white',
+            border: '1px solid rgba(0,0,0,0.12)',
+            borderRadius: '4px',
+          }}
+        >
           Export to PDF
         </button>
       </div>
