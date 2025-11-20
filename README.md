@@ -1,54 +1,59 @@
-![](https://github.com/xyflow/web/blob/main/assets/codesandbox-header-ts.png?raw=true)
+# Bowtie Diagram — React Flow Prototype
 
-# React Flow starter (Vite + TS)
+Team #: 3
 
-We've put together this template to serve as a starting point for folks
-interested in React Flow. You can use this both as a base for your own React
-Flow applications, or for small experiments or bug reports.
+Team members:
 
-**TypeScript not your thing?** We also have a vanilla JavaScript starter template,
-just for you!
+- Brie Malta (Design Team)
+- Nina Myers (Design Team)
+- Priyal Vyas (Design Team)
+- Emanuel Stanescu Moloman (Software Engineer)
+- Sonia Chavelas Gonzalez (Design Team)
 
-## Getting up and running
+Chosen approach
 
-You can get this template without forking/cloning the repo using `degit`:
+We implemented a single-page React + TypeScript application using `@xyflow/react` (a React Flow distribution) to build a Bowtie diagram editor. The app uses controlled `nodes` and `edges` state, custom node components, named handles for port-specific connections, an ELK-based layout helper for optional auto-layout, and `html2canvas` + `jspdf` for PDF export.
+
+Risk story (3–5 sentences)
+
+Working with graph UIs introduced a few risks: SVG and CSS interactions make reliable exports non-trivial (we mitigated this by injecting temporary styles and using `foreignObjectRendering`), and programmatic layout engines require explicit node dimensions to avoid overlap. TypeScript union types for node data demanded pragmatic casts during rapid iteration; we recommend consolidating shared fields to reduce type friction. Lastly, accessibility and color-contrast needed active attention once we switched to a dark canvas with bright node surfaces.
+
+How to run / view
+
+1. Install dependencies:
 
 ```bash
-npx degit xyflow/vite-react-flow-template your-app-name
+npm install
 ```
 
-The template contains mostly the minimum dependencies to get up and running, but
-also includes eslint and some additional rules to help you write React code that
-is less likely to run into issues:
-
-```bash
-npm install # or `pnpm install` or `yarn install`
-```
-
-Vite is a great development server and build tool that we recommend our users to
-use. You can start a development server with:
+2. Run the dev server (open http://localhost:5173):
 
 ```bash
 npm run dev
 ```
 
-While the development server is running, changes you make to the code will be
-automatically reflected in the browser!
+3. Build for production:
 
-## Things to try:
+```bash
+npm run build
+npm run preview
+```
 
-- Create a new custom node inside `src/nodes/` (don't forget to export it from `src/nodes/index.ts`).
-- Change how things look by [overriding some of the built-in classes](https://reactflow.dev/learn/customization/theming#overriding-built-in-classes).
-- Add a layouting library to [position your nodes automatically](https://reactflow.dev/learn/layouting/layouting)
+Prototype links
 
-## Resources
+- Local preview (dev): `http://localhost:5173`
+- Deployed prototype: [Add deployed URL here if available]
 
-Links:
+Acknowledgement
 
-- [React Flow - Docs](https://reactflow.dev)
-- [React Flow - Discord](https://discord.com/invite/Bqt6xrs)
+This is a student project developed for DSBA 5122 in collaboration with Todus Advisors. Bowtie Symbols are proprietary of Todus Advisors.
 
-Learn:
+Notes / Resources
 
-- [React Flow – Custom Nodes](https://reactflow.dev/learn/customization/custom-nodes)
-- [React Flow – Layouting](https://reactflow.dev/learn/layouting/layouting)
+- Project entry: `src/main.tsx` → `src/App.tsx`.
+- Node definitions and exports: `src/nodes/index.tsx`.
+- Layout helper: `src/utils/elkLayout.ts`.
+- Node details editor: `src/components/NodeDetails.tsx`.
+- Legend: `src/components/Legend.tsx`.
+
+If you'd like, I can add a short live demo link (Netlify / Vercel) and small screenshots to this README. Replace the placeholders above with your deployed prototype URL to share with your instructor.
