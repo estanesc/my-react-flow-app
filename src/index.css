@@ -5,7 +5,10 @@
 
   /* Dark theme color tokens */
   --canvas-bg: #0b1220; /* page / canvas background */
-  --surface: #0f1724; /* slightly lighter surface */
+  --surface: #e1e1e1; /* light surface for nodes (near-white) */
+  --surface-text: #0b1220; /* text color on light node surfaces */
+  --details-surface: #ffffff; /* Node Details panel surface (distinct from node surface) */
+  --details-text: #0b1220; /* text color for details panel */
   --muted: #94a3b8;
 
   /* element color tokens (darker variants) */
@@ -28,7 +31,7 @@
 
   --element-color-on: #ffffff;
   --element-radius: 12px;
-  --element-shadow: 0 8px 24px rgba(2,6,23,0.6);
+  --element-shadow: 0 8px 24px rgba(2,6,23,0.06);
 }
 
 html,
@@ -54,7 +57,7 @@ body,
   font-weight: 600;
   font-size: 1rem;
   border-radius: var(--element-radius);
-  color: var(--element-color-on);
+  color: var(--surface-text);
   text-transform: none;
   transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
   box-shadow: var(--element-shadow);
@@ -67,6 +70,12 @@ body,
   white-space: pre-line;
 }
 
+/* Ensure node surface uses the surface variable so nodes are brighter */
+.element {
+  background: var(--surface);
+  border: 1px solid rgba(2,6,23,0.06);
+}
+
 .element:focus-visible {
   outline: 3px solid #1E90FF;
   outline-offset: 2px;
@@ -77,7 +86,7 @@ body,
   font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--element-color-on);
+  color: var(--surface-text);
   letter-spacing: 0.3px;
   line-height: 1.4;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
