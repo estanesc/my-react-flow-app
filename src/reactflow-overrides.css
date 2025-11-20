@@ -8,6 +8,8 @@
   padding: 6px !important;
   border-radius: 8px !important;
   box-shadow: 0 4px 10px rgba(0,0,0,0.12) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  background: rgba(255,255,255,0.06) !important;
 }
 .react-flow__controls button svg {
   width: 22px !important;
@@ -15,6 +17,8 @@
 }
 .react-flow__controls button:hover {
   transform: none !important;
+  background: rgba(255,255,255,0.12) !important;
+  border-color: rgba(255,255,255,0.18) !important;
 }
 
 /* Slightly increase the minimap controls (if present) */
@@ -26,10 +30,10 @@
 /* Visual indicator for the selected node (when Node Details is open) */
 .react-flow__node.selected .element,
 .react-flow__node.react-flow__node-selected .element {
-  outline: 8px solid rgba(159, 37, 37, 0.95);
+  outline: 3px solid rgba(30,144,255,0.95);
   outline-offset: 4px;
-  box-shadow: 0 20px 40px rgba(30,144,255,0.12) !important;
-  border-color: rgba(159, 37, 37, 0.95) !important;
+  box-shadow: 0 12px 30px rgba(30,144,255,0.12) !important;
+  border-color: rgba(30,144,255,0.9) !important;
   transform: translateY(-2px);
 }
 
@@ -40,12 +44,17 @@
 }
 
 /* Dark theme adjustments for controls and panels */
-.react-flow__controls button {
+.react-flow__controls .react-flow__controls__button {
+  /* ensure specific control buttons (zoom, fit) are emphasized */
+  border: 1px solid rgba(255,255,255,0.12) !important;
   background: rgba(255,255,255,0.06) !important;
   color: var(--element-color-on) !important;
 }
-.react-flow__controls button:hover {
-  background: rgba(255,255,255,0.08) !important;
+.react-flow__controls .react-flow__controls__button:hover,
+.react-flow__controls .react-flow__controls__button:focus {
+  background: rgba(255,255,255,0.14) !important;
+  border-color: rgba(255,255,255,0.22) !important;
+  outline: none !important;
 }
 .react-flow__controls .react-flow__controls__button svg {
   fill: var(--element-color-on) !important;
