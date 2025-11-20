@@ -49,4 +49,3 @@
 - **Iterative polish:** Start with a working flow and progressively refine UX (legend, selection highlight, larger controls) rather than trying to get pixel-perfect early.
 
 ---
-If you want, I can expand this into a slide deck or a short presentation with screenshots showing before/after visuals for the export fix, the legend, and the Node Details panel.
