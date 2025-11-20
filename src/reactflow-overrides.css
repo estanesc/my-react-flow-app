@@ -38,3 +38,21 @@
 .react-flow__node.react-flow__node-selected .node-label {
   text-shadow: 0 2px 8px rgba(30,144,255,0.12);
 }
+
+/* Dark theme adjustments for controls and panels */
+.react-flow__controls button {
+  background: rgba(255,255,255,0.06) !important;
+  color: var(--element-color-on) !important;
+}
+.react-flow__controls button:hover {
+  background: rgba(255,255,255,0.08) !important;
+}
+.react-flow__controls .react-flow__controls__button svg {
+  fill: var(--element-color-on) !important;
+}
+
+/* Mini map background tweak */
+.react-flow__minimap {
+  background: rgba(255,255,255,0.02) !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+}

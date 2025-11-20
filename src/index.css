@@ -3,27 +3,32 @@
   --line-height: 1.5;
   --font-weight-base: 400;
 
-  /* element color tokens */
-  --hazard: #B22222;
-  --hazard-hover: #8B0000;
-  --top-event: #FF4500;
-  --top-event-hover: #CC3700;
-  --threat: #FFA500;
-  --threat-hover: #FF8C00;
-  --consequence: #9932CC;
-  --consequence-hover: #800080;
-  --preventive: #32CD32;
-  --preventive-hover: #228B22;
-  --mitigative: #00BFFF;
-  --mitigative-hover: #1E90FF;
-  --degradation-factor: #FFD700;
-  --degradation-factor-hover: #FFA500;
-  --degradation-control: #66CDAA;
-  --degradation-control-hover: #20B2AA;
+  /* Dark theme color tokens */
+  --canvas-bg: #0b1220; /* page / canvas background */
+  --surface: #0f1724; /* slightly lighter surface */
+  --muted: #94a3b8;
 
-  --element-color-on: #fff;
+  /* element color tokens (darker variants) */
+  --hazard: #cf6679;
+  --hazard-hover: #ff8fa3;
+  --top-event: #ffb86b;
+  --top-event-hover: #ffcf9a;
+  --threat: #ff9e64;
+  --threat-hover: #ffc58a;
+  --consequence: #c792ea;
+  --consequence-hover: #d7a8f2;
+  --preventive: #6bd5a8;
+  --preventive-hover: #8be6bf;
+  --mitigative: #66c2ff;
+  --mitigative-hover: #9ed6ff;
+  --degradation-factor: #ffd166;
+  --degradation-factor-hover: #ffe495;
+  --degradation-control: #7be3c7;
+  --degradation-control-hover: #9ff0d8;
+
+  --element-color-on: #ffffff;
   --element-radius: 12px;
-  --element-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  --element-shadow: 0 8px 24px rgba(2,6,23,0.6);
 }
 
 html,
@@ -34,6 +39,8 @@ body,
   font-family: var(--font-stack);
   line-height: var(--line-height);
   font-weight: var(--font-weight-base);
+  background: var(--canvas-bg);
+  color: var(--element-color-on);
 }
 
 .element {
@@ -47,11 +54,11 @@ body,
   font-weight: 600;
   font-size: 1rem;
   border-radius: var(--element-radius);
-  color: #000; /* node text color (was white) */
+  color: var(--element-color-on);
   text-transform: none;
   transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
   box-shadow: var(--element-shadow);
-  border: 2px solid rgba(0,0,0,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
   text-align: center;
   /* allow handles to render outside the node border */
   overflow: visible;
@@ -70,7 +77,7 @@ body,
   font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  color: #000;
+  color: var(--element-color-on);
   letter-spacing: 0.3px;
   line-height: 1.4;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -81,9 +88,14 @@ body,
   box-sizing: border-box;
 }
 
-/* Ensure React Flow's default node text is also black */
+/* Ensure React Flow's default node text is light in dark theme */
 .react-flow__node-default {
-  color: #000;
+  color: var(--element-color-on);
+}
+
+/* React Flow canvas background */
+.react-flow {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent), var(--canvas-bg);
 }
 
 /* Shared SVG-node layout used by custom nodes */
