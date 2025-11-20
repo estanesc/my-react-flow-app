@@ -20,6 +20,7 @@ import { initialNodes, nodeTypes } from './nodes';
 import { initialEdges, edgeTypes } from './edges';
 import { getLayoutedElements } from './utils/elkLayout';
 import NodeDetails from './components/NodeDetails';
+import Legend from './components/Legend';
 import type { AppNode } from './nodes/types';
 
 function FlowInner({ nodesReadyFlag }: { nodesReadyFlag: boolean }) {
@@ -282,6 +283,7 @@ function FlowComponent() {
         onClose={() => setSelectedNodeId(null)}
       />
 
+      <Legend />
       <div style={{ position: 'absolute', top: 10, right: 10, zIndex: 10, display: 'flex', gap: '8px', flexDirection: 'column' }}>
         <button
           onClick={onSave}
