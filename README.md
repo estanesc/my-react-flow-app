@@ -1,14 +1,6 @@
 # Bowtie Diagram — React Flow Prototype
 
-Team #: 3
-
-Team members:
-
-- Brie Malta (Design Team)
-- Nina Myers (Design Team)
-- Priyal Vyas (Design Team)
-- Emanuel Stanescu Moloman (Software Engineer)
-- Sonia Chavelas Gonzalez (Design Team)
+Team #3
 
 Chosen approach
 
